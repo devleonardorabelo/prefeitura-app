@@ -1,7 +1,7 @@
 import axios, { Method } from 'axios';
 import { API_URL } from '../constants/api';
 
-const request = (route: string, method?: Method) => {
+const request = (route: string, method?: Method): any => {
   return axios({
     url: `${API_URL}/${route}`,
     method: method || 'get',
