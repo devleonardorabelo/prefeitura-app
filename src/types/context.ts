@@ -5,4 +5,5 @@ export type TPageContext = {
   pages: Page[] | null;
   posts: Post[] | null;
   selectedPage: Page | null;
+  selectPage: (page: Page) => void;
 };

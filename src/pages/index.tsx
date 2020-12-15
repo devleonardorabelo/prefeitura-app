@@ -6,19 +6,17 @@ import { FooterNavigation, PostBlock } from '../components';
 import styles from './styles';
 
 const Home: React.FC = () => {
-  const { pages, posts } = useContext(PageContext);
+  const { pages, posts, selectedPage, selectPage } = useContext(PageContext);
   return (
     <>
       <SafeAreaView style={styles.container}>
-        {pages?.map((page) => (
-          <FlatList
-            data={page.content}
-            keyExtractor={(): string => String(Math.random())}
-            renderItem={({ item }): JSX.Element => <PostBlock data={item} posts={posts} />}
-          />
-        ))}
+        <FlatList
+          data={selectedPage?.content}
+          keyExtractor={(): string => String(Math.random())}
+          renderItem={({ item }): JSX.Element => <PostBlock data={item} posts={posts} />}
+        />
       </SafeAreaView>
-      <FooterNavigation data={pages} />
+      <FooterNavigation data={pages} onPress={selectPage} />
     </>
   );
 };

@@ -6,6 +6,7 @@ const PageContext = createContext<TPageContext>({
   pages: null,
   posts: null,
   selectedPage: null,
+  selectPage: () => {},
 });
 
 export const PageProvider: React.FC = ({ children }) => {
@@ -15,6 +16,7 @@ export const PageProvider: React.FC = ({ children }) => {
 
   const loadPages = async (): Promise<void> => {
     const response = await request('pages');
+    setSelectedPage(response[1]);
     setPages(response);
   };
 
@@ -23,12 +25,17 @@ export const PageProvider: React.FC = ({ children }) => {
     setPosts(response);
   };
 
+  const selectPage = (page: Page): void => setSelectedPage(page);
+
   useEffect(() => {
     loadPages();
     loadPosts();
   }, []);
+
   return (
-    <PageContext.Provider value={{ pages, posts, selectedPage }}>{children}</PageContext.Provider>
+    <PageContext.Provider value={{ pages, posts, selectedPage, selectPage }}>
+      {children}
+    </PageContext.Provider>
   );
 };
 
