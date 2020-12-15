@@ -1,11 +1,12 @@
 import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import { PageProvider } from './contexts/page';
+import Home from './pages';
 
-const App = () => {
+const App: React.FC = () => {
   return (
-    <SafeAreaView>
-      <Text>Oi</Text>
-    </SafeAreaView>
+    <PageProvider>
+      <Home />
+    </PageProvider>
   );
 };
 
