@@ -1,8 +1,8 @@
-import { Post } from './post';
+import { Content } from './content';
 
 export interface Page {
   title: string;
   icon: string;
   url: string;
-  content: Post[];
+  content: Content[];
 }

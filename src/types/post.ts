@@ -1,7 +1,5 @@
-export interface Post {
-  type: string;
+export type Post = {
   title: string;
-  properties: {
-    categories: string[];
-  };
-}
+  category: string;
+  content: string;
+};
