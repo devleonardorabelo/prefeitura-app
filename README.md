@@ -26,5 +26,9 @@ Clone o repositório na pasta desejada:
 Para iniciar no android, rodar o comando:
 
     yarn android
+    
+Para iniciar no emulador IOS, rodar o comando:
 
-Para iniciar no IOS, seguir os passos referentes em: https://reactnative.dev/docs/running-on-device#running-your-app-on-ios-devices
+    yarn ios
+
+Para iniciar no seu Iphone físico, seguir os passos referentes em: https://reactnative.dev/docs/running-on-device#running-your-app-on-ios-devices
